@@ -34105,7 +34105,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, App);
     _this = _super.call(this, props);
     _this.state = {
-      employees: []
+      libros: []
     };
     return _this;
   }
@@ -34115,58 +34115,58 @@ var App = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
       client({
         method: 'GET',
-        path: '/api/employees'
+        path: '/api/libros'
       }).done(function (response) {
         _this2.setState({
-          employees: response.entity._embedded.employees
+          libros: response.entity._embedded.libros
         });
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement(EmployeeList, {
-        employees: this.state.employees
+      return /*#__PURE__*/React.createElement(LibroList, {
+        libros: this.state.libros
       });
     }
   }]);
   return App;
 }(React.Component);
-var EmployeeList = /*#__PURE__*/function (_React$Component2) {
-  _inherits(EmployeeList, _React$Component2);
-  var _super2 = _createSuper(EmployeeList);
-  function EmployeeList() {
-    _classCallCheck(this, EmployeeList);
+var LibroList = /*#__PURE__*/function (_React$Component2) {
+  _inherits(LibroList, _React$Component2);
+  var _super2 = _createSuper(LibroList);
+  function LibroList() {
+    _classCallCheck(this, LibroList);
     return _super2.apply(this, arguments);
   }
-  _createClass(EmployeeList, [{
+  _createClass(LibroList, [{
     key: "render",
     value: function render() {
-      var employees = this.props.employees.map(function (employee) {
-        return /*#__PURE__*/React.createElement(Employee, {
-          key: employee._links.self.href,
-          employee: employee
+      var libros = this.props.libros.map(function (libro) {
+        return /*#__PURE__*/React.createElement(Libro, {
+          key: libro._links.self.href,
+          libro: libro
         });
       });
-      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "First Name"), /*#__PURE__*/React.createElement("th", null, "Last Name"), /*#__PURE__*/React.createElement("th", null, "Description")), employees));
+      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("th", null, "Categoria"), /*#__PURE__*/React.createElement("th", null, "Descripcion")), libros));
     }
   }]);
-  return EmployeeList;
+  return LibroList;
 }(React.Component);
-var Employee = /*#__PURE__*/function (_React$Component3) {
-  _inherits(Employee, _React$Component3);
-  var _super3 = _createSuper(Employee);
-  function Employee() {
-    _classCallCheck(this, Employee);
+var Libro = /*#__PURE__*/function (_React$Component3) {
+  _inherits(Libro, _React$Component3);
+  var _super3 = _createSuper(Libro);
+  function Libro() {
+    _classCallCheck(this, Libro);
     return _super3.apply(this, arguments);
   }
-  _createClass(Employee, [{
+  _createClass(Libro, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.employee.firstName), /*#__PURE__*/React.createElement("td", null, this.props.employee.lastName), /*#__PURE__*/React.createElement("td", null, this.props.employee.description));
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.libro.nombre), /*#__PURE__*/React.createElement("td", null, this.props.libro.categoria), /*#__PURE__*/React.createElement("td", null, this.props.libro.descripcion));
     }
   }]);
-  return Employee;
+  return Libro;
 }(React.Component);
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react'));
 
